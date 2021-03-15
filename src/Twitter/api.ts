@@ -70,9 +70,6 @@ export const adapter = (data: TwitterPostApiResponse): ITwitterPost => {
     }),
   };
 
-  console.log("adapter data?.quoted_status: "+JSON.stringify(data?.quoted_status))
-  response?.quotedTweet = data?.is_quote_status ? adapter(data?.quoted_status) : null;
-
   response?.media?.forEach((element) => {
     if (element === null) return;
     response.textContent = response.textContent.replace(
@@ -80,6 +77,9 @@ export const adapter = (data: TwitterPostApiResponse): ITwitterPost => {
       ""
     );
   });
+
+  console.log("adapter data?.quoted_status: "+JSON.stringify(data?.quoted_status))
+  response?.quotedTweet = data?.is_quote_status ? adapter(data?.quoted_status) : null;
 
   // @ts-ignore
   return response;
