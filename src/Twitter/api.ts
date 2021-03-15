@@ -15,6 +15,7 @@ export const getPostData = async (
   console.log("getPostData url: "+url);
   const result = await fetch(url + "?tweet_mode=extended", requestOptions)
     .then((response) => {
+      console.log("getPostData response: "+JSON.stringify(response))
       return response.json()
     })
     .then((value) => {
