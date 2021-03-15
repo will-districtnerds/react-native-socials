@@ -24,6 +24,7 @@ export const getPostData = async (
 };
 
 export const adapter = (data: TwitterPostApiResponse): ITwitterPost => {
+  console.log("adapter data: "+JSON.stringify(data));
   const response = {
     createdAt: data.created_at,
     id: data.id,

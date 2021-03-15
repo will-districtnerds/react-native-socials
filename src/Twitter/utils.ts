@@ -34,14 +34,14 @@ export const formatLikeNumber = (likes: number): string => {
   if (likes < 1000) {
     return likes.toString();
   }
-  const suffix = likes > 1_000_000_000 ? "Md" : likes > 1_000_000 ? "M" : "k";
+  const suffix = likes > 1000000000 ? "Md" : likes > 1000000 ? "M" : "k";
 
   const numberToDisplay =
-    likes > 1_000_000_000
-      ? likes / 1_000_000_000
-      : likes > 1_000_000
-      ? likes / 1_000_000
-      : likes / 1_000;
+    likes > 1000000000
+      ? likes / 1000000000
+      : likes > 1000000
+      ? likes / 1000000
+      : likes / 1000;
   return (
     (Math.floor(numberToDisplay * 10) / 10).toString().replace(".", ",") +
     " " +

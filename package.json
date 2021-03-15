@@ -2,8 +2,8 @@
   "name": "react-native-socials",
   "version": "0.0.25",
   "description": "A react-native library which displays content from popular social networks",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "lib/commonjs/index.js",
+  "types": "lib/typescript/src/index.d.ts",
   "license": "MIT",
   "author": "pierrecapo (https://twitter.com/PierreCaporossi)",
   "repository": {
@@ -21,6 +21,7 @@
     "yarn": "^1.22.4"
   },
   "devDependencies": {
+    "@react-native-community/bob": "^0.17.1",
     "tslib": "^1.11.1"
   },
   "peerDependencies": {
@@ -33,7 +34,8 @@
   "homepage": "https://github.com/PierreCapo/react-native-socials#readme",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cd example && yarn start"
+    "start": "cd example && yarn start",
+    "prepare": "bob build"
   },
   "keywords": [
     "react-native",
@@ -42,5 +44,29 @@
     "instagram",
     "youtube",
     "reddit"
+  ],
+  "react-native": "src/index.ts",
+  "module": "lib/module/index.js",
+  "files": [
+    "src",
+    "lib",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__",
+    "dist"
+  ],
+  "@react-native-community/bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      "typescript"
+    ]
+  },
+  "eslintIgnore": [
+    "node_modules/",
+    "dist/",
+    "lib/"
   ]
 }
