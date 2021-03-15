@@ -54,6 +54,7 @@ export const Twitter = (props: PropsType) => {
   React.useEffect(() => {
     console.log("Twitter useEffect useCustomTweetExtendedData: "+JSON.stringify(useCustomTweetExtendedData))
     if (!useCustomTweetExtendedData) {
+      console.log("useCustomTweetExtendedData undefined")
       getPostData(id, consumerKey, consumerSecret).then((response) => {
         console.log("Twitter response: "+JSON.stringify(response));
         if(response != null) {
@@ -61,6 +62,7 @@ export const Twitter = (props: PropsType) => {
         }
       });
     } else {
+      console.log("useCustomTweetExtendedData defined")
       setData(adapter(useCustomTweetExtendedData));
     }
   }, [setData]);
