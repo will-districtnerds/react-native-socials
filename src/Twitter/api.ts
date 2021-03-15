@@ -15,11 +15,9 @@ export const getPostData = async (
   console.log("getPostData url: "+url);
   const result = await fetch(url + "?tweet_mode=extended", requestOptions)
     .then((response) => {
-      console.log("getPostData "+postId+" response: "+JSON.stringify(response))
       return response.json()
     })
     .then((value) => {
-      console.log("getPostData "+postId+" value: "+JSON.stringify(value))
       return adapter(value)
     })
     .catch((error) => {
