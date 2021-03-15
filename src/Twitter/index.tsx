@@ -52,6 +52,7 @@ export const Twitter = (props: PropsType) => {
   const appearance = darkMode ? "dark" : "light";
   const [data, setData] = React.useState<ITwitterPost | null>(null);
   React.useEffect(() => {
+    console.log("Twitter useEffect useCustomTweetExtendedData: "+JSON.stringify(useCustomTweetExtendedData))
     if (!useCustomTweetExtendedData) {
       getPostData(id, consumerKey, consumerSecret).then((response) => {
         console.log("Twitter response: "+JSON.stringify(response));
