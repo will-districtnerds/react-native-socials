@@ -45,6 +45,7 @@ export const adapter = (data: TwitterPostApiResponse): ITwitterPost => {
     urlList: data?.entities?.urls,
     hashtagList: data?.entities?.hashtags,
     userMentionList: data?.entities?.user_mentions,
+    quotedTweet: null,
     quoteUrlId: data?.quoted_status_id_str,
     media: data.extended_entities?.media?.map((element) => {
       if (element?.type === "video" || element?.type === "animated_gif") {
