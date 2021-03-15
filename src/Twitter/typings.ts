@@ -222,5 +222,6 @@ export interface TwitterPostApiResponse {
   possibly_sensitive: boolean;
   possibly_sensitive_appealable: boolean;
   lang: string;
+  retweeted_status: any;
 }
 export type AppearanceTheme = "dark" | "light";
