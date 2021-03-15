@@ -58,7 +58,10 @@ export const Twitter = (props: PropsType) => {
       getPostData(id, consumerKey, consumerSecret).then((response) => {
         console.log("Twitter response: "+JSON.stringify(response));
         if(response != null) {
+          console.log("Twitter response was not null")
           setData(response);
+        } else {
+          console.log("Twitter response was null")
         }
       });
     } else {
