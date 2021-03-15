@@ -19,7 +19,7 @@ export const getPostData = async (
     })
     .then((value) => {
       console.log("getPostData value: "+JSON.stringify(value))
-      adapter(value)
+      return adapter(value)
     })
     .catch((error) => {
       console.log(error);
