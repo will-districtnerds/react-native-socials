@@ -55,7 +55,9 @@ export const Twitter = (props: PropsType) => {
     if (!useCustomTweetExtendedData) {
       getPostData(id, consumerKey, consumerSecret).then((response) => {
         console.log("Twitter response: "+JSON.stringify(response));
-        setData(response);
+        if(response != null) {
+          setData(response);
+        }
       });
     } else {
       setData(adapter(useCustomTweetExtendedData));
