@@ -31,6 +31,7 @@ export const getPostData = async (
 
 export const adapter = (data: TwitterPostApiResponse): ITwitterPost => {
   console.log("adapter data: "+JSON.stringify(data));
+  console.log("adapter data?.quoted_status: "+JSON.stringify(data?.quoted_status));
   const response = {
     createdAt: data.created_at,
     id: data.id,
@@ -45,7 +46,7 @@ export const adapter = (data: TwitterPostApiResponse): ITwitterPost => {
     urlList: data?.entities?.urls,
     hashtagList: data?.entities?.hashtags,
     userMentionList: data?.entities?.user_mentions,
-    quotedTweet: null,
+    quotedTweet: data?.is_quote_status ? adapter(data?.quoted_status) : null,
     quoteUrlId: data?.quoted_status_id_str,
     media: data.extended_entities?.media?.map((element) => {
       if (element?.type === "video" || element?.type === "animated_gif") {
@@ -78,9 +79,6 @@ export const adapter = (data: TwitterPostApiResponse): ITwitterPost => {
       ""
     );
   });
-
-  console.log("adapter data?.quoted_status: "+JSON.stringify(data?.quoted_status))
-  response.quotedTweet = data?.is_quote_status ? adapter(data?.quoted_status) : null;
 
   // @ts-ignore
   return response;
