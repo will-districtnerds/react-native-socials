@@ -79,7 +79,7 @@ export const adapter = (data: TwitterPostApiResponse): ITwitterPost => {
   });
 
   console.log("adapter data?.quoted_status: "+JSON.stringify(data?.quoted_status))
-  response?.quotedTweet = data?.is_quote_status ? adapter(data?.quoted_status) : null;
+  response.quotedTweet = data?.is_quote_status ? adapter(data?.quoted_status) : null;
 
   // @ts-ignore
   return response;
