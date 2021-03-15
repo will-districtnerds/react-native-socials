@@ -12,7 +12,7 @@ export const getPostData = async (
     consumerKey,
     consumerSecret
   );
-
+  console.log("getPostData url: "+url);
   const result = await fetch(url + "?tweet_mode=extended", requestOptions)
     .then((response) => response.json())
     .then((value) => adapter(value))
