@@ -54,6 +54,7 @@ export const Twitter = (props: PropsType) => {
   React.useEffect(() => {
     if (!useCustomTweetExtendedData) {
       getPostData(id, consumerKey, consumerSecret).then((response) => {
+        console.log("Twitter response: "+JSON.stringify(response));
         setData(response);
       });
     } else {
