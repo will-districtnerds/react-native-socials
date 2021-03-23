@@ -189,7 +189,7 @@ async function fetchHtml(urlToFetch, forceGoogle = false) {
   } catch (responseOrError) {
     if (responseOrError.message && __DEV__) {
       if (responseOrError.message === "Network request failed") {
-        console.log(urlToFetch, "could not be fetched");
+        console.warn(urlToFetch, "could not be fetched");
       } else {
         console.log(responseOrError);
       }

@@ -52,20 +52,15 @@ export const Twitter = (props: PropsType) => {
   const appearance = darkMode ? "dark" : "light";
   const [data, setData] = React.useState<ITwitterPost | null>(null);
   React.useEffect(() => {
-    console.log("Twitter useEffect useCustomTweetExtendedData: "+JSON.stringify(useCustomTweetExtendedData))
     if (!useCustomTweetExtendedData) {
-      console.log("useCustomTweetExtendedData undefined id: "+id);
       getPostData(id, consumerKey, consumerSecret).then((response) => {
-        console.log("Twitter response: "+JSON.stringify(response));
         if(response != null) {
-          console.log("Twitter response was not null")
           setData(response);
         } else {
-          console.log("Twitter response was null")
+          console.warn("Twitter response was null")
         }
       });
     } else {
-      console.log("useCustomTweetExtendedData defined")
       setData(adapter(useCustomTweetExtendedData));
     }
   }, [setData]);

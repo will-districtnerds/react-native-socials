@@ -12,7 +12,6 @@ export const getPostData = async (
     consumerKey,
     consumerSecret
   );
-  console.log("getPostData url: "+url);
   const result = await fetch(url + "?tweet_mode=extended", requestOptions)
     .then((response) => {
       return response.json()
@@ -28,8 +27,6 @@ export const getPostData = async (
 };
 
 export const adapter = (data: TwitterPostApiResponse): ITwitterPost => {
-  console.log("adapter data: "+JSON.stringify(data));
-  console.log("adapter data?.quoted_status: "+JSON.stringify(data?.quoted_status));
   const response = {
     createdAt: data.created_at,
     id: data.id,
